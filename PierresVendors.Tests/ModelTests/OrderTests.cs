@@ -1,24 +1,24 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Catalogue.Models;
+using PierresVendors.Models;
 using System;
 
-namespace Catalogue.Tests
+namespace PierresVendors.Tests
 {
   [TestClass]
-  public class SongTests : IDisposable
+  public class OrderTests : IDisposable
   {
 
     public void Dispose()
     {
-      Song.ClearAll();
+      Order.ClearAll();
     }
 
     [TestMethod]
-    public void SongConstructor_CreatesInstanceOfSong_Song()
+    public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Song newSong = new Song("test");
-      Assert.AreEqual(typeof(Song), newSong.GetType());
+      Order newOrder = new Order("test");
+      Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
     [TestMethod]
@@ -28,8 +28,8 @@ namespace Catalogue.Tests
       string description = "Walk the dog.";
 
       //Act
-      Song newSong = new Song(description);
-      string result = newSong.Description;
+      Order newOrder = new Order(description);
+      string result = newOrder.Description;
 
       //Assert
       Assert.AreEqual(description, result);
@@ -40,70 +40,70 @@ namespace Catalogue.Tests
     {
       //Arrange
       string description = "Walk the dog.";
-      Song newSong = new Song(description);
+      Order newOrder = new Order(description);
 
       //Act
       string updatedDescription = "Do the dishes";
-      newSong.Description = updatedDescription;
-      string result = newSong.Description;
+      newOrder.Description = updatedDescription;
+      string result = newOrder.Description;
 
       //Assert
       Assert.AreEqual(updatedDescription, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsEmptyList_SongList()
+    public void GetAll_ReturnsEmptyList_OrderList()
     {
       // Arrange
-      List<Song> newList = new List<Song> { };
+      List<Order> newList = new List<Order> { };
 
       // Act
-      List<Song> result = Song.GetAll();
+      List<Order> result = Order.GetAll();
 
       // Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
-    public void GetAll_ReturnsSongs_SongList()
+    public void GetAll_ReturnsOrders_OrderList()
     {
       //Arrange
       string description01 = "Walk the dog";
       string description02 = "Wash the dishes";
-      Song newSong1 = new Song(description01);
-      Song newSong2 = new Song(description02);
-      List<Song> newList = new List<Song> { newSong1, newSong2 };
+      Order newOrder1 = new Order(description01);
+      Order newOrder2 = new Order(description02);
+      List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
       //Act
-      List<Song> result = Song.GetAll();
+      List<Order> result = Order.GetAll();
 
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
-    public void GetId_SongsInstantiateWithAnIdAndGetterReturn_Int()
+    public void GetId_OrdersInstantiateWithAnIdAndGetterReturn_Int()
     {
       string description = "walk the dog.";
-      Song newSong = new Song(description);
-      int result = newSong.Id;
+      Order newOrder = new Order(description);
+      int result = newOrder.Id;
       Assert.AreEqual(1,result);
     }
 
     [TestMethod]
-    public void Find_ReturnsCorrectItem_Song()
+    public void Find_ReturnsCorrectItem_Order()
     {
       //Arrange
       string description01 = "Walk the dog";
       string description02 = "Wash the dishes";
-      Song newSong1 = new Song(description01);
-      Song newSong2 = new Song(description02);
+      Order newOrder1 = new Order(description01);
+      Order newOrder2 = new Order(description02);
 
       //Act
-      Song result = Song.Find(2);
+      Order result = Order.Find(2);
 
       //Assert
-      Assert.AreEqual(newSong2, result);
+      Assert.AreEqual(newOrder2, result);
     }
   }
 }
