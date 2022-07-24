@@ -17,7 +17,7 @@ namespace PierresVendors.Tests
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
-      Vendor newVendor = new Vendor("test vendor");
+      Vendor newVendor = new Vendor("Suzie", "Suzie's Donuts");
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
@@ -25,8 +25,9 @@ namespace PierresVendors.Tests
     public void GetName_ReturnsName_String()
     {
       //Arrange
-      string name = "Test Vendor";
-      Vendor newVendor = new Vendor(name);
+      string name = "Suzie";
+      string details = "Suzie's Donuts";
+      Vendor newVendor = new Vendor(name, details);
 
       //Act
       string result = newVendor.Name;
@@ -40,7 +41,8 @@ namespace PierresVendors.Tests
     {
       //Arrange
       string name = "Test Vendor";
-      Vendor newVendor = new Vendor(name);
+      string details= "Test Details";
+      Vendor newVendor = new Vendor(name, details);
 
       //Act
       int result = newVendor.Id;
@@ -54,9 +56,11 @@ namespace PierresVendors.Tests
     {
       //Arrange
       string name01 = "Work";
+      string details01 = "Work Detail";
       string name02 = "School";
-      Vendor newVendor1 = new Vendor(name01);
-      Vendor newVendor2 = new Vendor(name02);
+      string details02 = "School Detail";
+      Vendor newVendor1 = new Vendor(name01, details01);
+      Vendor newVendor2 = new Vendor(name02, details02);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
 
       //Act
@@ -71,9 +75,11 @@ namespace PierresVendors.Tests
     {
       //Arrange
       string name01 = "Work";
+      string details01 = "Work Detail";
       string name02 = "School";
-      Vendor newVendor1 = new Vendor(name01);
-      Vendor newVendor2 = new Vendor(name02);
+      string details02 = "School Detail";
+      Vendor newVendor1 = new Vendor(name01, details01);
+      Vendor newVendor2 = new Vendor(name02, details02);
 
       //Act
       Vendor result = Vendor.Find(2);
@@ -87,10 +93,12 @@ namespace PierresVendors.Tests
     {
       //Arrange
       string description = "Walk the dog.";
-      Order newOrder = new Order(description);
+      double price = 4;
+      Order newOrder = new Order(description, price);
       List<Order> newList = new List<Order> { newOrder };
       string name = "Work";
-      Vendor newVendor = new Vendor(name);
+      string details = "Work Details";
+      Vendor newVendor = new Vendor(name, details);
       newVendor.AddOrder(newOrder);
 
       //Act
