@@ -40,8 +40,8 @@ namespace PierresVendors.Tests
     public void GetId_ReturnsVendorId_Int()
     {
       //Arrange
-      string name = "Test Vendor";
-      string details= "Test Details";
+      string name = "Suzy";
+      string details= "Suzy's Donuts";
       Vendor newVendor = new Vendor(name, details);
 
       //Act
@@ -55,10 +55,10 @@ namespace PierresVendors.Tests
     public void GetAll_ReturnsAllVendorObjects_VendorList()
     {
       //Arrange
-      string name01 = "Work";
-      string details01 = "Work Detail";
-      string name02 = "School";
-      string details02 = "School Detail";
+      string name01 = "Suzy";
+      string details01 = "Suzy's Donuts";
+      string name02 = "John";
+      string details02 = "John's Donuts";
       Vendor newVendor1 = new Vendor(name01, details01);
       Vendor newVendor2 = new Vendor(name02, details02);
       List<Vendor> newList = new List<Vendor> { newVendor1, newVendor2 };
@@ -74,10 +74,10 @@ namespace PierresVendors.Tests
     public void Find_ReturnsCorrectVendor_Vendor()
     {
       //Arrange
-      string name01 = "Work";
-      string details01 = "Work Detail";
-      string name02 = "School";
-      string details02 = "School Detail";
+      string name01 = "Suzy";
+      string details01 = "Suzy's Donuts";
+      string name02 = "John";
+      string details02 = "John's Donuts";
       Vendor newVendor1 = new Vendor(name01, details01);
       Vendor newVendor2 = new Vendor(name02, details02);
 
@@ -92,12 +92,14 @@ namespace PierresVendors.Tests
     public void AddItem_AssociatesItemWithCategory_ItemList()
     {
       //Arrange
-      string description = "Walk the dog.";
+      string description = "Donut.";
       double price = 4;
-      Order newOrder = new Order(description, price);
+      string title = "Suzie's Donut";
+      DateTime date = new DateTime(2022,07,24);
+      Order newOrder = new Order(description, price, title, date);
       List<Order> newList = new List<Order> { newOrder };
-      string name = "Work";
-      string details = "Work Details";
+      string name = "Suzy";
+      string details = "Suzy's Donuts";
       Vendor newVendor = new Vendor(name, details);
       newVendor.AddOrder(newOrder);
 
