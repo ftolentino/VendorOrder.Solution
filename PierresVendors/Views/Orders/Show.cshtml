@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My order List!</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>Vendor Details: @Model["vendor"].Details </h1>
+@{
+  Layout = "_Layout";
+}
 
-    <h2>Vendor: @Model["vendor"].Name</h2>
+<div class="container">
+  <h1>Vendor Details: @Model["vendor"].Details </h1>
 
-    <h3>@Model["order"].Title</h3>
-    <h6>@Model["order"].Description</h6>
-    <h5>$@Model["order"].Price</h5>
-    <h5>@Model["order"].Date</h5>
-    
+  <h2>Vendor: @Model["vendor"].Name</h2>
 
-    <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
-    <a href='/vendors'>View all vendors</a>
-  </body>
-</html>
+  <h3>@Model["order"].Title</h3>
+  <h6>@Model["order"].Description</h6>
+  <h5>$@Model["order"].Price</h5>
+  <h5>Date Ordered: @Model["order"].Date.Year/@Model["order"].Date.Month/@Model["order"].Date.Day</h5>
+
+
+  <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
+  <a href='/vendors'>View all vendors</a>
+</div>
+
 
 
