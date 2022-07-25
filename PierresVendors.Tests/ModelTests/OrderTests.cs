@@ -17,7 +17,8 @@ namespace PierresVendors.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-      Order newOrder = new Order("test");
+      DateTime date = new DateTime(2022, 07, 24);
+      Order newOrder = new Order("Chocoalte", 4, "Donut Order", date);
       Assert.AreEqual(typeof(Order), newOrder.GetType());
     }
 
@@ -25,10 +26,13 @@ namespace PierresVendors.Tests
     public void GetDescription_ReturnsDescription_String()
     {
       //Arrange
-      string description = "Walk the dog.";
+      string title = "Donut Order";
+      string description = "Donut";
+      double price = 4;
+      DateTime date = new DateTime(2022, 07, 24);
 
       //Act
-      Order newOrder = new Order(description);
+      Order newOrder = new Order(description, price, title, date);
       string result = newOrder.Description;
 
       //Assert
@@ -39,8 +43,11 @@ namespace PierresVendors.Tests
     public void SetDescription_SetDescription_String()
     {
       //Arrange
-      string description = "Walk the dog.";
-      Order newOrder = new Order(description);
+      string description = "Donut";
+      double price = 4;
+      string title = "Donut Order";
+      DateTime date = new DateTime(2022, 07, 24);
+      Order newOrder = new Order(description, price, title, date);
 
       //Act
       string updatedDescription = "Do the dishes";
@@ -68,10 +75,17 @@ namespace PierresVendors.Tests
     public void GetAll_ReturnsOrders_OrderList()
     {
       //Arrange
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
-      Order newOrder1 = new Order(description01);
-      Order newOrder2 = new Order(description02);
+      string description01 = "Donut1";
+      double price01 = 4;
+      string title01 = "Donut Order1";
+      DateTime date01 = new DateTime(2022, 07, 24);
+
+      string description02 = "Donut2";
+      string title02 = "Donut Order2";
+      DateTime date02 = new DateTime(2022, 07, 24);
+      double price02 = 4;
+      Order newOrder1 = new Order(description01, price01, title01, date01);
+      Order newOrder2 = new Order(description02, price02, title02, date02);
       List<Order> newList = new List<Order> { newOrder1, newOrder2 };
 
       //Act
@@ -84,8 +98,11 @@ namespace PierresVendors.Tests
     [TestMethod]
     public void GetId_OrdersInstantiateWithAnIdAndGetterReturn_Int()
     {
-      string description = "walk the dog.";
-      Order newOrder = new Order(description);
+      string description = "Donut";
+      double price = 4;
+      string title = "Donut Order";
+      DateTime date = new DateTime(2022, 07, 24);
+      Order newOrder = new Order(description, price, title, date);
       int result = newOrder.Id;
       Assert.AreEqual(1,result);
     }
@@ -94,10 +111,16 @@ namespace PierresVendors.Tests
     public void Find_ReturnsCorrectItem_Order()
     {
       //Arrange
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
-      Order newOrder1 = new Order(description01);
-      Order newOrder2 = new Order(description02);
+      string description01 = "Donut1";
+      double price01 = 4;
+      string title01 = "Donut Order1";
+      DateTime date01 = new DateTime(2022, 07, 24);
+      string description02 = "Donut2";
+      string title02 = "Donut Order2";
+      DateTime date02 = new DateTime(2022, 07, 24);
+      double price02 = 4;
+      Order newOrder1 = new Order(description01, price01, title01, date01);
+      Order newOrder2 = new Order(description02, price02, title02, date02);
 
       //Act
       Order result = Order.Find(2);
@@ -105,5 +128,14 @@ namespace PierresVendors.Tests
       //Assert
       Assert.AreEqual(newOrder2, result);
     }
+
+    // [TestMethod]
+    // public void GetPrice_OrderReturnPrice_Double()
+    // {
+    //   double price = 4.75;
+    //   Order newOrder = new Order(price);
+    //   double result = newOrder.Price;
+    //   Assert.AreEqual(newOrder, result);
+    // }
   }
 }
