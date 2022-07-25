@@ -13,6 +13,7 @@
     <ol>
     @foreach (Order order in @Model["orders"])
     {
+      <h6>@order.Title</h6>
       <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Description</a></li>
       <p>Price: $@order.Price</p>
     }
