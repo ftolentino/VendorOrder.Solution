@@ -8,8 +8,12 @@
   <body>
     <h1>Vendor Details: @Model["vendor"].Details </h1>
 
-    <h3>Vendor: @Model["vendor"].Name</h3>
-    <h2>@Model["order"].Description</h2>
+    <h2>Vendor: @Model["vendor"].Name</h2>
+
+    <h3>@Model["order"].Title</h3>
+    <h6>@Model["order"].Description</h6>
+    <h5>$@Model["order"].Price</h5>
+    <h5>@Model["order"].Date</h5>
     
 
     <a href='/vendors/@Model["vendor"].Id/orders/new'>Add another order</a>
